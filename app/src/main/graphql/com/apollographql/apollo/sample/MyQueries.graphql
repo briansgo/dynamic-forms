@@ -1,7 +1,44 @@
 query FirstQuery {
-	allFormOutline{
-    id
+	formOutline(id: 6){
+
+  	name_form
     description
 
+    formsSegments{
+      id
+      pos
+
+      description_text
+      description_title
+
+      formSectionIdObject{
+        id
+        pos
+
+        description_title
+        description_text
+      }
+
+      responsesTypes(order: ASC) {
+        id
+        pos
+
+        formLabelIdObject {
+          id
+          pos
+
+          description
+        }
+
+    		description
+
+        optionTypeIdObject{
+          id
+
+          description
+        }
+
+      }
+    }
   }
 }

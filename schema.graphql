@@ -1,0 +1,2978 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}
+
+type C2gPermission {
+    c2gsPermissionssRoles: [C2gPermissionRole]
+    c2gsPermissionssUsers: [C2gPermissionUser]
+    created_at: Date
+    description: String
+    icon: String
+    id: Int
+    model: String
+    modelTypeIdObject: C2gTypeModel
+    model_type_id: Int
+    name: String
+    orden: Int
+    parent_id: Int
+    permissionsRoles: [PermissionRole]
+    permissionsUsers: [PermissionUser]
+    updated_at: Date
+}
+
+type C2gPermissionRole {
+    created_at: Date
+    id: Int
+    permissionIdObject: C2gPermission
+    permission_id: Int
+    roleIdObject: C2gRole
+    role_id: Int
+    updated_at: Date
+}
+
+type C2gPermissionUser {
+    created_at: Date
+    id: Int
+    permissionIdObject: C2gPermission
+    permission_id: Int
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int
+}
+
+type C2gRole {
+    c2gsPermissionssRoles: [C2gPermissionRole]
+    c2gsRolessUsers: [C2gRoleUser]
+    created_at: Date
+    description: String
+    id: Int
+    name: String
+    permissionsRoles: [PermissionRole]
+    rolesUsers: [RoleUser]
+    updated_at: Date
+}
+
+type C2gRoleUser {
+    created_at: Date
+    id: Int
+    roleIdObject: C2gRole
+    role_id: Int
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int
+}
+
+type C2gTypeModel {
+    c2gsPermissions: [C2gPermission]
+    created_at: Date
+    description: String
+    id: Int
+    updated_at: Date
+}
+
+type C2gUser {
+    addres: String
+    avatar: String
+    c2gsPermissionssUsers: [C2gPermissionUser]
+    c2gsRolessUsers: [C2gRoleUser]
+    created_at: Date
+    dni: String
+    email: String
+    email_verified: Int
+    id: Int
+    lastname: String
+    materials: [Materials]
+    mobile_phone: String
+    name: String
+    oauth_provider: String
+    oauth_provider_id: String
+    peoples: [People]
+    peoples0s: [People]
+    permissionsUsers: [PermissionUser]
+    personsNotifys: [PersonNotify]
+    phone: String
+    profiles: [Profiles]
+    projects: [Projects]
+    rolesUsers: [RoleUser]
+    salaries: [Salaries]
+    tasks: [Tasks]
+    team_id: Int
+    uid_firebase: String
+    updated_at: Date
+    usersProfiles: [UserProfiles]
+}
+
+type Checklist {
+    checklistsResponses: [ChecklistResponse]
+    created_at: Date
+    findings: [Findings]
+    id: Int
+    name: String
+    subtaskTypesIdObject: SubtaskTypes
+    subtask_types_id: Int!
+    updated_at: Date
+    val_max: String
+    val_min: String
+}
+
+type ChecklistResponse {
+    checklistIdObject: Checklist
+    checklist_id: Int!
+    comentario: String
+    created_at: Date
+    end_at: Date!
+    gravity: Float
+    id: Int
+    lat: Float!
+    lon: Float!
+    path_evidencia: String
+    path_image: String!
+    response: String
+    rta_usr: Int
+    tasksIdObject: Tasks
+    tasks_id: Int!
+    temperature: Float
+    updated_at: Date
+    vibration: Float
+}
+
+type ChecklistSubtask {
+    description: String
+    subtask_types_id: Int
+}
+
+type EventRunStates {
+    created_at: Date
+    description: String
+    eventsRunsStatesTasksPeoples: [EventsRunStateTaskPeople]
+    id: Int
+    updated_at: Date
+}
+
+type EventsRunStateTaskPeople {
+    created_at: Date
+    end_at: Date
+    id: Int
+    lat: Float
+    lon: Float
+    taskPeopleIdObject: TaskPeople
+    taskRunStateIdObject: EventRunStates
+    task_people_id: Int!
+    task_run_state_id: Int!
+    updated_at: Date
+}
+
+type EventsRunStateTaskPeoplePaginator {
+    count: Int
+    rows: [EventsRunStateTaskPeople]
+}
+
+type File {
+    encoding: String!
+    filename: String!
+    mimetype: String!
+}
+
+type FileType {
+    created_at: Date
+    description: String!
+    id: Int
+    supportAttachmentIdObject: SupportAttachment
+    support_attachment_id: Int!
+    supportsAttachmentsTasksPeoples: [SupportAttachmentTaskPeople]
+    updated_at: Date
+}
+
+type FindingFiles {
+    created_at: Date
+    findingsIdObject: Findings
+    findings_id: Int
+    id: Int
+    path: String
+    updated_at: Date
+}
+
+type FindingStatus {
+    created_at: Date
+    findings: [Findings]
+    id: Int
+    name: String
+    updated_at: Date
+}
+
+type Findings {
+    checklistIdObject: Checklist
+    checklist_id: Int
+    closed: Int
+    created_at: Date
+    description: String
+    fecha_programacion: Date
+    findingStatusIdObject: FindingStatus
+    finding_status_id: Int
+    findingsFiles: [FindingFiles]
+    id: Int
+    name: String
+    path_image: String
+    sitesIdObject: Sites
+    sites_id: Int!
+    updated_at: Date
+}
+
+type FindingsPaginator {
+    count: Int
+    rows: [Findings]
+}
+
+type FormLabel {
+    created_at: Date
+    description: String
+    id: Int
+    pos: Int
+    questionsDisables: [QuestionDisable]
+    responsesTypes: [ResponseType]
+    updated_at: Date
+}
+
+type FormOutline {
+    created_at: Date
+    description: String
+    formsSegments: [FormSegment]
+    id: Int
+    internal_code: String
+    name_form: String
+    reasonsBysFormsPaterns: [ReasonByFormPatern]
+    subtaskTypesUdObject: SubtaskTypes
+    subtask_types_ud: Int
+    updated_at: Date
+}
+
+type FormSection {
+    created_at: Date
+    description_repeat: String
+    description_text: String
+    description_title: String
+    formsSegments: [FormSegment]
+    id: Int
+    is_anexo: Int
+    is_repeat: Int
+    pos: Int
+    reasonsBysFormsSections: [ReasonByFormSection]
+    updated_at: Date
+}
+
+type FormSegment {
+    created_at: Date
+    description_text: String
+    description_title: String
+    formOutlineIdObject: FormOutline
+    formSectionIdObject: FormSection
+    form_outline_id: Int
+    form_section_id: Int
+    id: Int
+    pos: Int
+    reasonsBysFormsSegments: [ReasonByFormSegment]
+    responsesTypes(order: Order = ASC): [ResponseType]
+    updated_at: Date
+}
+
+type FormatMail {
+    active: Int
+    created_at: Date
+    groupsCuadrillas: [GroupCuadrilla]
+    id: Int
+    subject: String
+    text_mail: String
+    updated_at: Date
+}
+
+type GroupCuadrilla {
+    created_at: Date
+    formatMailIdObject: FormatMail
+    format_mail_id: Int
+    id: Int!
+    peopleIdObject: People
+    people_id: Int
+    sitesIdObject: Sites
+    sites_id: Int
+    updated_at: Date
+}
+
+type ITaskPeopleNoc {
+    is_checklist: Int
+    is_pause: Int
+    noc_acceso_sitio: String
+    noc_actividad: String
+    noc_alarma: String
+    noc_alarmid: String
+    noc_alarmname: String
+    noc_assingto: String
+    noc_attachment: String
+    noc_bcf: String
+    noc_bsc: String
+    noc_categoria_sitio: String
+    noc_cdr_noc: String
+    noc_clusters: String
+    noc_coordinateNokia: String
+    noc_created_at: Date
+    noc_creator: String
+    noc_creatorprofile: String
+    noc_description: String
+    noc_elemento_red: String
+    noc_estado: String
+    noc_faultSubcategory: String
+    noc_faultType: String
+    noc_faultfirstoccurtime: String
+    noc_faultlastoccurtime: String
+    noc_faultlevel: String
+    noc_fecha_programacion: Date
+    noc_id: Int
+    noc_id_altan: Int
+    noc_id_noc: Int
+    noc_integratedticketid: String
+    noc_interfaceid: String
+    noc_nature: String
+    noc_noc_state_id: Int
+    noc_noc_state_id_in_itsm: Int
+    noc_operador_noc: String
+    noc_operatedby: String
+    noc_operatetime: String
+    noc_operationmode: String
+    noc_orderseq: String
+    noc_priority: String
+    noc_probablecause: String
+    noc_profile: String
+    noc_project_created_at: Date
+    noc_project_noc_id: Int
+    noc_project_projects_id: Int
+    noc_project_updated_at: Date
+    noc_projectid: String
+    noc_projectname: String
+    noc_region: String
+    noc_requiredfinishtime: String
+    noc_service: String
+    noc_serviceImpact: String
+    noc_severity: String
+    noc_siteAddress: String
+    noc_siteCoordinats: String
+    noc_siteName: String
+    noc_sitePriority: String
+    noc_siteid: String
+    noc_sitesEffected: String
+    noc_sitio: String
+    noc_solution: String
+    noc_spareParts: String
+    noc_status: String
+    noc_subelemento_red: String
+    noc_tarea_noc: String
+    noc_taskTitle: String
+    noc_tasktype: String
+    noc_ticketid: String
+    noc_ticketid_index: Int
+    noc_tipo: String
+    noc_title: String
+    noc_updated_at: Date
+    noc_userid: String
+    noc_vendorId: String
+    noc_ventana: String
+    noc_work_order: String
+    noc_workflowtype: String
+    people_address: String
+    people_code_serial_num: String
+    people_created_at: Date
+    people_curp: String
+    people_dni: String
+    people_email: String
+    people_email_sent: String
+    people_employee_number: String
+    people_empresa: String
+    people_id: Int
+    people_imei: String
+    people_imss: String
+    people_lastnames: String
+    people_names: String
+    people_password_people: String
+    people_peoplecol: String
+    people_person_type_id: Int
+    people_phone: String
+    people_rfc: String
+    people_rfid_num: String
+    people_updated_at: Date
+    people_user_id: Int
+    projects_asset: String
+    projects_ciudad: String
+    projects_cluster: String
+    projects_count_time_sec_est: Int
+    projects_created_at: Date
+    projects_description: String
+    projects_detail: String
+    projects_estimated_datetime_end: Date
+    projects_estimated_datetime_init: Date
+    projects_id: Int
+    projects_id_sitio: String
+    projects_plano: String
+    projects_price: Int
+    projects_prioridad: String
+    projects_project_datetime_end: Date
+    projects_project_datetime_init: Date
+    projects_quantity: Int
+    projects_rca: String
+    projects_region: String
+    projects_requerimiento: String
+    projects_severidad: String
+    projects_sites_id: Int
+    projects_sitio: String
+    projects_state_recipe_id: Int
+    projects_ticket: String
+    projects_tipo_sitio: String
+    projects_updated_at: Date
+    projects_user_id: Int
+    state_project_description: String
+    subtask_types_created_at: Date
+    subtask_types_dependency: Int
+    subtask_types_description: String
+    subtask_types_id: Int
+    subtask_types_task_types_id: Int
+    subtask_types_time_in_sec_est: Int
+    subtask_types_updated_at: Date
+    task_people_comentario: String
+    task_people_created_at: Date
+    task_people_end_time_work: Date
+    task_people_estimated_datetime_end: Date
+    task_people_estimated_datetime_init: Date
+    task_people_id: Int
+    task_people_init_time_work: Date
+    task_people_lat_end: Int
+    task_people_lat_ini: Int
+    task_people_lon_end: Int
+    task_people_lon_ini: Int
+    task_people_path_evidencia: String
+    task_people_person_id: Int
+    task_people_task_id: Int
+    task_people_updated_at: Date
+    tasks_created_at: Date
+    tasks_current_progress: Int
+    tasks_description: String
+    tasks_end_at: Date
+    tasks_estimated_datetime_end: Date
+    tasks_estimated_datetime_init: Date
+    tasks_estimated_time: Float
+    tasks_id: Int
+    tasks_init_at: Date
+    tasks_project_id: Int
+    tasks_quantity_real_time_used: Int
+    tasks_quantity_task: Int
+    tasks_sub_task_type_id: Int
+    tasks_updated_at: Date
+    tasks_user_id: Int
+}
+
+type ITaskPeopleNocChecklist {
+    checklist_id: Int
+    comentario: String
+    cr_id: Int
+    name: String
+    path_image: String
+    person_id: Int
+    rta_usr: Int
+    tasks_id: Int
+    val_min: String
+}
+
+type ITaskPeopleNocWithPause {
+    event_run_states_created_at: Date
+    event_run_states_description: String
+    event_run_states_id: Int
+    event_run_states_updated_a: Date
+    events_run_state_task_people_created_at: Date
+    events_run_state_task_people_end_at: Date
+    events_run_state_task_people_id: Int
+    events_run_state_task_people_lat: Int
+    events_run_state_task_people_lon: Int
+    events_run_state_task_people_task_people_id: Int
+    events_run_state_task_people_task_run_state_id: Int
+    events_run_state_task_people_updated_at: Date
+    noc_acceso_sitio: String
+    noc_actividad: String
+    noc_alarma: String
+    noc_alarmid: String
+    noc_alarmname: String
+    noc_assingto: String
+    noc_attachment: String
+    noc_bcf: String
+    noc_bsc: String
+    noc_categoria_sitio: String
+    noc_cdr_noc: String
+    noc_clusters: String
+    noc_coordinateNokia: String
+    noc_created_at: Date
+    noc_creator: String
+    noc_creatorprofile: String
+    noc_description: String
+    noc_elemento_red: String
+    noc_estado: String
+    noc_faultSubcategory: String
+    noc_faultType: String
+    noc_faultfirstoccurtime: String
+    noc_faultlastoccurtime: String
+    noc_faultlevel: String
+    noc_fecha_programacion: Date
+    noc_id: Int
+    noc_id_altan: Int
+    noc_id_noc: Int
+    noc_integratedticketid: String
+    noc_interfaceid: String
+    noc_nature: String
+    noc_noc_state_id: Int
+    noc_noc_state_id_in_itsm: Int
+    noc_operador_noc: String
+    noc_operatedby: String
+    noc_operatetime: String
+    noc_operationmode: String
+    noc_orderseq: String
+    noc_priority: String
+    noc_probablecause: String
+    noc_profile: String
+    noc_project_created_at: Date
+    noc_project_noc_id: Int
+    noc_project_projects_id: Int
+    noc_project_updated_at: Date
+    noc_projectid: String
+    noc_projectname: String
+    noc_region: String
+    noc_requiredfinishtime: String
+    noc_service: String
+    noc_serviceImpact: String
+    noc_severity: String
+    noc_siteAddress: String
+    noc_siteCoordinats: String
+    noc_siteName: String
+    noc_sitePriority: String
+    noc_siteid: String
+    noc_sitesEffected: String
+    noc_sitio: String
+    noc_solution: String
+    noc_spareParts: String
+    noc_status: String
+    noc_subelemento_red: String
+    noc_tarea_noc: String
+    noc_taskTitle: String
+    noc_tasktype: String
+    noc_ticketid: String
+    noc_tipo: String
+    noc_title: String
+    noc_updated_at: Date
+    noc_userid: String
+    noc_vendorId: String
+    noc_ventana: String
+    noc_work_order: String
+    noc_workflowtype: String
+    people_email: String
+    projects_asset: String
+    projects_ciudad: String
+    projects_cluster: String
+    projects_count_time_sec_est: Int
+    projects_created_at: Date
+    projects_description: String
+    projects_detail: String
+    projects_estimated_datetime_end: Date
+    projects_estimated_datetime_init: Date
+    projects_id: Int
+    projects_id_sitio: String
+    projects_plano: String
+    projects_price: Int
+    projects_prioridad: String
+    projects_project_datetime_end: Date
+    projects_project_datetime_init: Date
+    projects_quantity: Int
+    projects_rca: String
+    projects_region: String
+    projects_requerimiento: String
+    projects_severidad: String
+    projects_sites_id: Int
+    projects_sitio: String
+    projects_state_recipe_id: Int
+    projects_ticket: String
+    projects_tipo_sitio: String
+    projects_updated_at: Date
+    projects_user_id: Int
+    state_project_description: String
+    subtask_types_created_at: Date
+    subtask_types_dependency: Int
+    subtask_types_description: String
+    subtask_types_id: Int
+    subtask_types_task_types_id: Int
+    subtask_types_time_in_sec_est: Int
+    subtask_types_updated_at: Date
+    task_people_comentario: String
+    task_people_created_at: Date
+    task_people_end_time_work: Date
+    task_people_estimated_datetime_end: Date
+    task_people_estimated_datetime_init: Date
+    task_people_id: Int
+    task_people_init_time_work: Date
+    task_people_lat_end: Int
+    task_people_lat_ini: Int
+    task_people_lon_end: Int
+    task_people_lon_ini: Int
+    task_people_path_evidencia: String
+    task_people_person_id: Int
+    task_people_task_id: Int
+    task_people_updated_at: Date
+    tasks_created_at: Date
+    tasks_current_progress: Int
+    tasks_description: String
+    tasks_end_at: Date
+    tasks_estimated_datetime_end: Date
+    tasks_estimated_datetime_init: Date
+    tasks_estimated_time: Float
+    tasks_id: Int
+    tasks_init_at: Date
+    tasks_project_id: Int
+    tasks_quantity_real_time_used: Int
+    tasks_quantity_task: Int
+    tasks_sub_task_type_id: Int
+    tasks_updated_at: Date
+    tasks_user_id: Int
+}
+
+type ITasksMobile {
+    description: String
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    id: Int
+    isCheckList: Boolean
+}
+
+type IWorkOrdersMobile {
+    criticality: String
+    id: Int
+    priority: String
+    siteDescription: String
+    ticketId: String
+}
+
+type ImageProc {
+    created_at: Date
+    description: String
+    id: Int
+    path: String
+    subtaskTypesIdObject: SubtaskTypes
+    subtask_types_id: Int!
+    updated_at: Date
+}
+
+type LimitationsType {
+    created_at: Date
+    description: String
+    id: Int
+    limitationsWorks: [LimitationsWork]
+    path_img_suport: String
+    updated_at: Date
+}
+
+type LimitationsWork {
+    created_at: Date
+    id: Int
+    limitationsTypeIdObject: LimitationsType
+    limitations_type_id: Int!
+    subtaskTypesIdObject: SubtaskTypes
+    subtask_types_id: Int!
+    updated_at: Date
+}
+
+type Login {
+    addres: String
+    avatar: String
+    created_at: Date
+    dni: String
+    email: String
+    lastname: String
+    mobile_phone: String
+    name: String
+    permissions: [C2gPermission]
+    phone: String
+    roles: [String]
+    team_id: Int
+    updated_at: Date
+}
+
+type MaterialDelivery {
+    created_at: Date
+    id: Int
+    materialTaskIdObject: MaterialTasks
+    material_task_id: Int
+    peopleIdObject: People
+    people_id: [Int]
+    quantity: Float
+    updated_at: Date
+}
+
+type MaterialTasks {
+    count: Int
+    created_at: Date
+    has_material: Int
+    id: Int
+    materialsDeliverys: [MaterialDelivery]
+    projectMaterialsIdObject: ProjectMaterials
+    project_materials_id: Int!
+    tasksIdObject: Tasks
+    tasks_id: Int!
+    updated_at: Date
+}
+
+type MaterialTypes {
+    created_at: Date
+    description: String
+    id: Int
+    materials: [Materials]
+    updated_at: Date
+}
+
+type Materials {
+    almacen: String
+    asset: String
+    calibre: String
+    calibre_unit: String
+    ciudad: String
+    cluster: String
+    cotizacion: String
+    count_store: Int
+    created_at: Date
+    descripcion: String
+    despacho: Date
+    has_task: Int!
+    id: Int
+    id_sitio: String
+    materialTypeIdObject: MaterialTypes
+    material_type_id: Int!
+    modelo: String
+    name_material: String
+    orden: String
+    parte: String
+    pdf: String
+    price: Float
+    projectsMaterials: [ProjectMaterials]
+    quantity_high_unit: String
+    quantity_long_unit: String
+    quantity_measure_high: String
+    quantity_measure_long: String
+    quantity_measure_wide: String
+    quantity_wide_unit: String
+    recepcion: Date
+    referencia: String
+    region: String
+    serie: String
+    sitio: String
+    solicitante: String
+    ticket: String
+    tipo: String
+    tipo_sitio: String
+    transferencia: String
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int
+    weigth_count: String
+    xml: String
+}
+
+type Menus {
+    created_at: Date
+    icon: String!
+    id: Int
+    manage: String!
+    menu_type: String
+    name: String!
+    orden: String
+    parent_id: Int
+    updated_at: Date
+    url: String
+}
+
+type ModifiedPermissionsRole {
+    added: [C2gPermissionRole]!
+    deleted: [C2gPermissionRole]!
+}
+
+type ModifiedPermissionsUser {
+    added: [C2gPermissionUser]!
+    deleted: [C2gPermissionUser]!
+}
+
+type ModifiedRolesUser {
+    added: [C2gRoleUser]!
+    deleted: [C2gRoleUser]!
+}
+
+type Mutation {
+    _: Boolean
+    createC2gPermission(c2g_permission: C2gPermissionMutation!): C2gPermission!
+    createC2gRole(c2g__role: C2gRoleMutation!): C2gRole!
+    createC2gTypeModel(c2g_type_model: C2gTypeModelMutation!): C2gTypeModel!
+    createC2gUser(c2g_user: C2gUserMutation!): C2gUser!
+    createChecklist(checklist: ChecklistMutation!): Checklist!
+    createChecklistResponse(checklist_response: ChecklistResponseMutation!): ChecklistResponse!
+    createChecklistTaskTypeSubtask(checklist: ChecklistMutation, subtaskTypes: SubtaskTypesMutation, taskTypes: TaskTypesMutation!): Checklist!
+    createEventRunStates(event_run_states: EventRunStatesMutation!): EventRunStates!
+    createEventsRunStateTaskPeople(events_run_state_task_people: EventsRunStateTaskPeopleMutation!): EventsRunStateTaskPeople!
+    createFormLabel(form_label: FormLabelMutation!): FormLabel!
+    createFormOutline(form_outline: FormOutlineMutation!): FormOutline!
+    createFormSection(form_section: FormSectionMutation!): FormSection!
+    createFormSegment(form_segment: FormSegmentMutation!): FormSegment!
+    createImageProc(image_proc: ImageProcMutation!): ImageProc!
+    createLiftedState(liftedState: Upload!): File!
+    createLimitationsType(limitations_type: LimitationsTypeMutation!): LimitationsType!
+    createLimitationsTypeWork(limitations_type: LimitationsTypeMutation!, limitations_work: LimitationsWorkMutation!): LimitationsWork!
+    createLimitationsWork(limitations_work: LimitationsWorkMutation!): LimitationsWork!
+    createMaterialTasks(material_tasks: MaterialTasksMutation!): MaterialTasks!
+    createMaterialTypes(material_types: MaterialTypesMutation!): MaterialTypes!
+    createMaterials(materials: MaterialsMutation!): Materials!
+    createMultipleProjectMaterials(project_materials: [ProjectMaterialsMutation]!): [ProjectMaterials]!
+    createOptionType(option_type: OptionTypeMutation!): OptionType!
+    createPeople(people: PeopleMutation!): People!
+    createPersonTypes(person_types: PersonTypesMutation!): PersonTypes!
+    createProjectFromPrototypeId(id: Int!, idNoc: Int!): String!
+    createProjectRecurrence(project_recurrence: ProjectRecurrenceMutation!): ProjectRecurrence!
+    createProjects(projects: ProjectsMutation!): Projects!
+    createPrototypeProject(id_of_created: Int!, id_state: Int, init_time: Date!): PrototypeProject!
+    createQuestionDisable(question_disable: QuestionDisableMutation!): QuestionDisable!
+    createReasonByFormPatern(reason_by_form_patern: ReasonByFormPaternMutation!): ReasonByFormPatern!
+    createReasonByFormSection(reason_by_form_section: ReasonByFormSectionMutation!): ReasonByFormSection!
+    createReasonByFormSegment(reason_by_form_segment: ReasonByFormSegmentMutation!): ReasonByFormSegment!
+    createResponseDisable(response_disable: ResponseDisableMutation!): ResponseDisable!
+    createResponseTaskPeople(response_task_people: ResponseTaskPeopleMutation!): ResponseTaskPeople!
+    createResponseType(response_type: ResponseTypeMutation!): ResponseType!
+    createSites(sites: SitesMutation!): Sites!
+    createSubtaskTypes(subtask_types: SubtaskTypesMutation!): SubtaskTypes!
+    createTaskPeople(task_people: TaskPeopleMutation!): TaskPeople!
+    createTaskTypes(task_types: TaskTypesMutation!): TaskTypes!
+    createTasks(material_delivery: [MaterialDeliveryMutation]!, material_tasks: [MaterialTasksMutation]!, materials: [MaterialsMutation]!, task_people: [TaskPeopleMutation]!, tasks: TasksMutation!): Tasks!
+    createToolsType(tools_type: ToolsTypeMutation!): ToolsType!
+    createToolsTypeWork(tools_type: ToolsTypeMutation!, tools_work: ToolsWorkMutation!): ToolsWork!
+    createToolsWork(tools_work: ToolsWorkMutation!): ToolsWork!
+    createTypePeriodicity(type_periodicity: TypePeriodicityMutation!): TypePeriodicity!
+    createUsers(users: UsersMutation!): Users!
+    deleteC2gPermission(id: Int!): C2gPermission!
+    deleteC2gRole(id: Int!): C2gRole!
+    deleteC2gTypeModel(id: Int!): C2gTypeModel!
+    deleteC2gUser(id: Int!): C2gUser!
+    deleteChecklist(id: Int!): Checklist!
+    deleteEventRunStates(id: Int!): EventRunStates!
+    deleteFormLabel(id: Int!): FormLabel!
+    deleteFormOutline(id: Int!): FormOutline!
+    deleteFormSection(id: Int!): FormSection!
+    deleteFormSegment(id: Int!): FormSegment!
+    deleteImageProc(id: Int!): ImageProc!
+    deleteLimitationsType(id: Int!): LimitationsType!
+    deleteLimitationsWork(id: Int!): LimitationsWork!
+    deleteMaterialTypes(id: Int!): MaterialTypes!
+    deleteMaterials(id: Int!): Materials!
+    deleteOptionType(id: Int!): OptionType!
+    deletePeople(id: Int!): People!
+    deletePersonTypes(id: Int!): PersonTypes!
+    deleteProjectMaterials(id: Int!): ProjectMaterials!
+    deleteProjectRecurrence(id: Int!): ProjectRecurrence!
+    deleteQuestionDisable(id: Int!): QuestionDisable!
+    deleteReasonByFormPatern(id: Int!): ReasonByFormPatern!
+    deleteReasonByFormSection(id: Int!): ReasonByFormSection!
+    deleteReasonByFormSegment(id: Int!): ReasonByFormSegment!
+    deleteResponseDisable(id: Int!): ResponseDisable!
+    deleteResponseTaskPeople(id: Int!): ResponseTaskPeople!
+    deleteResponseType(id: Int!): ResponseType!
+    deleteSites(id: Int!): Sites!
+    deleteSubtaskTypes(id: Int!): SubtaskTypes!
+    deleteTaskTypes(id: Int!): TaskTypes!
+    deleteTasks(id: Int!): Tasks!
+    deleteToolsType(id: Int!): ToolsType!
+    deleteToolsWork(id: Int!): ToolsWork!
+    deleteUpdatedProjectRecurrence(id: Int!, project_recurrence: ProjectRecurrenceMutation!): ProjectRecurrence!
+    deleteUsers(id: Int!): Users!
+    endTaskPeople(id: Int!): TaskPeople!
+    endTaskPeopleMobile(idTask: Int!, latitud: Float!, longitud: Float!): TaskPeople!
+    finishEventsRunStateTaskPeople(id: Int!): EventsRunStateTaskPeople!
+    initTaskPeople(id: Int!): TaskPeople!
+    initTaskPeopleMobile(idTask: Int!, latitud: Float!, longitud: Float!): TaskPeople!
+    insertPrototypeProject(prototype_project: PrototypeProjectMutation!): PrototypeProject!
+    login: Login!
+    modifyPermissionsRole(added: [Int]!, deleted: [Int]!, idRole: Int!): ModifiedPermissionsRole!
+    modifyPermissionsUser(added: [Int]!, deleted: [Int]!, idUser: Int!): ModifiedPermissionsUser!
+    modifyRolesUser(added: [Int]!, deleted: [Int]!, idUser: Int!): ModifiedRolesUser!
+    notifyProjectCreated(criticality: String!, id: Int!, peopleId: [Int]!, priority: String!, siteDescription: String!, ticketId: String!): String!
+    removeRecurrence(id: Int!): ProjectRecurrence!
+    updateActiveProjectRecurrence(id: Int!, project_recurrence: ProjectRecurrenceMutation!): ProjectRecurrence!
+    updateAssignTaskPeople(new_person_id: Int!, person_id: Int!, project_id: Int!): [TaskPeople]!
+    updateC2gPermission(c2g_permission: C2gPermissionMutation!, id: Int!): C2gPermission!
+    updateC2gRole(c2g__role: C2gRoleMutation!, id: Int!): C2gRole!
+    updateC2gTypeModel(c2g_type_model: C2gTypeModelMutation!, id: Int!): C2gTypeModel!
+    updateC2gUser(c2g_user: C2gUserMutation!, id: Int!): C2gUser!
+    updateChecklist(checklist: ChecklistMutation!, id: Int!): Checklist!
+    updateChecklistResponse(checklist_response: ChecklistResponseMutation!, id: Int!): ChecklistResponse!
+    updateDesactiveProjectRecurrence(id: Int!, project_recurrence: ProjectRecurrenceMutation!): ProjectRecurrence!
+    updateEventRunStates(event_run_states: EventRunStatesMutation!, id: Int!): EventRunStates!
+    updateEventsRunStateTaskPeople(events_run_state_task_people: EventsRunStateTaskPeopleMutationUpdate!, id: Int!): EventsRunStateTaskPeople!
+    updateEventsRunStateTaskPeopleWhereTaskPeopleId(events_run_state_task_people: EventsRunStateTaskPeopleMutationUpdate!, task_people_id: Int!): EventsRunStateTaskPeople!
+    updateFormLabel(form_label: FormLabelMutation!, id: Int!): FormLabel!
+    updateFormOutline(form_outline: FormOutlineMutation!, id: Int!): FormOutline!
+    updateFormSection(form_section: FormSectionMutation!, id: Int!): FormSection!
+    updateFormSegment(form_segment: FormSegmentMutation!, id: Int!): FormSegment!
+    updateImageProc(id: Int!, image_proc: ImageProcMutation!): ImageProc!
+    updateLimitationsType(id: Int!, limitations_type: LimitationsTypeMutation!): LimitationsType!
+    updateLimitationsWork(id: Int!, limitations_work: LimitationsWorkMutation!): LimitationsWork!
+    updateMaterialTypes(id: Int!, material_types: MaterialTypesMutation!): MaterialTypes!
+    updateMaterials(id: Int!, materials: MaterialsMutation!): Materials!
+    updateMultipleC2gPermission(c2g_permissions: [UpdateC2gPermissionMutation]!): [C2gPermission]!
+    updateMultipleFormLabel(form_Label: [UpdateFormLabelMutation]!): [FormLabel]!
+    updateMultipleFormSection(form_Section: [UpdateFormSectionMutation]!): [FormSection]!
+    updateMultipleFormSegment(form_Segment: [UpdateFormSegmentMutation]!): [FormSegment]!
+    updateOptionType(id: Int!, option_type: OptionTypeMutation!): OptionType!
+    updatePeople(id: Int!, people: PeopleMutation!): People!
+    updatePersonTypes(id: Int!, person_types: PersonTypesMutation!): PersonTypes!
+    updateProjectRecurrence(id: Int!, project_recurrence: ProjectRecurrenceMutation!): ProjectRecurrence!
+    updateProjects(id: Int!, projects: ProjectsMutationUpdate!): Projects!
+    updateQuestionDisable(id: Int!, question_disable: QuestionDisableMutation!): QuestionDisable!
+    updateReasonByFormPatern(id: Int!, reason_by_form_patern: ReasonByFormPaternMutation!): ReasonByFormPatern!
+    updateReasonByFormSection(id: Int!, reason_by_form_section: ReasonByFormSectionMutation!): ReasonByFormSection!
+    updateReasonByFormSegment(id: Int!, reason_by_form_segment: ReasonByFormSegmentMutation!): ReasonByFormSegment!
+    updateResponseDisable(id: Int!, response_disable: ResponseDisableMutation!): ResponseDisable!
+    updateResponseTaskPeople(id: Int!, response_task_people: ResponseTaskPeopleMutation!): ResponseTaskPeople!
+    updateResponseType(id: Int!, response_type: ResponseTypeMutation!): ResponseType!
+    updateSites(id: Int!, sites: SitesMutation!): Sites!
+    updateSubtaskTypes(id: Int!, subtask_types: SubtaskTypesMutation!): SubtaskTypes!
+    updateTaskPeople(id: Int!, task_people: TaskPeopleMutationUpdate!): TaskPeople!
+    updateTaskPeopleOnInitTimeWork(id: Int!, task_people: TaskPeopleMutation!): TaskPeople!
+    updateTaskTypes(id: Int!, task_types: TaskTypesMutation!): TaskTypes!
+    updateTasks(id: Int!, material_delivery: [MaterialDeliveryMutation]!, material_tasks: [MaterialTasksMutation]!, materials: [MaterialsMutation]!, task_people: [TaskPeopleMutation]!, tasks: TasksMutation!): Tasks!
+    updateTasksWhereId(id: Int!, tasks: TasksMutationUpdate!): Tasks!
+    updateTasksWhereIdOnInitAt(id: Int!, tasks: TasksMutation!): Tasks!
+    updateTimeWo(id: Int!, time_wo: TimeWoMutation!): TimeWo!
+    updateToolsType(id: Int!, tools_type: ToolsTypeMutation!): ToolsType!
+    updateToolsWork(id: Int!, tools_work: ToolsWorkMutation!): ToolsWork!
+    updateUsers(id: Int!, users: UsersMutation!): Users!
+}
+
+type Noc {
+    acceso_sitio: String
+    actividad: String
+    alarma: String
+    alarmid: String
+    alarmname: String
+    assingto: String
+    attachment: String
+    bcf: String
+    bsc: String
+    categoria_sitio: String
+    cdr_noc: String
+    clusters: String
+    coordinateNokia: String
+    created_at: Date
+    creator: String
+    creatorprofile: String
+    description: String
+    elemento_red: String
+    estado: String
+    faultSubcategory: String
+    faultType: String
+    faultfirstoccurtime: String
+    faultlastoccurtime: String
+    faultlevel: String
+    fecha_programacion: Date
+    id: Int
+    id_altan: Int
+    id_noc: Int
+    integratedticketid: String
+    interfaceid: String
+    nature: String
+    nocStateIdObject: NocState
+    noc_state_id: Int!
+    nocsFiles: [NocFile]
+    nocsHistorials: [NocHistorial]
+    nocsProjects: [NocProject]
+    operador_noc: String
+    operatedby: String
+    operatetime: String
+    operationmode: String
+    orderseq: String
+    priority: String
+    probablecause: String
+    profile: String
+    projectid: String
+    projectname: String
+    region: String
+    requiredfinishtime: String
+    service: String
+    serviceImpact: String
+    severity: String
+    siteAddress: String
+    siteCoordinats: String
+    siteName: String
+    sitePriority: String
+    siteid: String
+    sitesEffected: String
+    sitio: String
+    solution: String
+    spareParts: String
+    status: String
+    subelemento_red: String
+    tarea_noc: String
+    taskTitle: String
+    tasktype: String
+    ticketid: String
+    tipo: String
+    title: String
+    updated_at: Date
+    userid: String
+    vendorId: String
+    ventana: String
+    work_order: String
+    workflowtype: String
+}
+
+type NocFile {
+    created_at: Date
+    filename: String
+    id: Int
+    nocIdObject: Noc
+    noc_id: Int
+    updated_at: Date
+}
+
+type NocHistorial {
+    created_at: Date
+    id: Int
+    nocIdObject: Noc
+    nocStateIdObject: NocState
+    noc_id: Int!
+    noc_state_id: Int!
+    updated_at: Date
+}
+
+type NocProject {
+    created_at: Date
+    nocIdObject: Noc
+    noc_id: Int!
+    projectsIdObject: Projects
+    projects_id: Int!
+    updated_at: Date
+}
+
+type NocState {
+    created_at: Date
+    id: Int
+    name: String
+    nocs: [Noc]
+    nocsHistorials: [NocHistorial]
+    updated_at: Date
+}
+
+type NotifyType {
+    created_at: Date
+    description: String
+    id: Int
+    personsNotifysProjects: [PersonNotifyProject]
+    updated_at: Date
+}
+
+type OptionType {
+    created_at: Date
+    description: String
+    id: Int
+    responsesTypes: [ResponseType]
+    updated_at: Date
+}
+
+type PasswordResets {
+    created_at: Date
+    email: String!
+    token: String!
+}
+
+type People {
+    address: String
+    c2gUserIdObject: C2gUser
+    c2g_user_id: Int
+    code_serial_num: String
+    created_at: Date
+    curp: String
+    dni: String
+    email: String
+    email_sent: String
+    employee_number: String
+    empresa: String
+    groupsCuadrillas: [GroupCuadrilla]
+    id: Int
+    imei: String
+    imss: String
+    lastnames: String!
+    materialsDeliverys: [MaterialDelivery]
+    names: String!
+    password_people: String
+    peoplecol: String
+    personTypeIdObject: PersonTypes
+    person_type_id: Int!
+    phone: String
+    positions: [Position]
+    positionsBcks: [PositionBck]
+    rfc: String
+    rfid_num: String
+    salaries: [Salaries]
+    sites: [Sites]
+    supervisions: [Supervision]
+    tasksPeoples: [TaskPeople]
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int
+    vehicules: [Vehicules]
+}
+
+type PeopleResponsable {
+    id: Int
+    id_material_task: Int
+    lastnames: String
+    names: String
+}
+
+type PermissionRole {
+    created_at: Date
+    id: Int
+    permissionIdObject: C2gPermission
+    permission_id: Int!
+    roleIdObject: C2gRole
+    role_id: Int!
+    updated_at: Date
+}
+
+type PermissionUser {
+    created_at: Date
+    id: Int
+    permissionIdObject: C2gPermission
+    permission_id: Int!
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int!
+}
+
+type Permissions {
+    created_at: Date
+    description: String
+    id: Int
+    model: String
+    name: String!
+    slug: String!
+    updated_at: Date
+}
+
+type PersonNotify {
+    address: String
+    code_serial_num: String
+    created_at: Date
+    dni: String!
+    email: String
+    employee_number: String
+    id: Int
+    imei: String
+    lastnames: String!
+    names: String!
+    password_people: String
+    peoplecol: String
+    personTypeIdObject: PersonTypes
+    person_type_id: Int!
+    personsNotifysProjects: [PersonNotifyProject]
+    phone: String
+    rfid_num: String
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int
+}
+
+type PersonNotifyProject {
+    created_at: Date
+    id: Int!
+    notifyTypeIdObject: NotifyType
+    notify_type_id: Int!
+    personNotifyIdObject: PersonNotify
+    person_notify_id: Int!
+    projectsIdObject: Projects
+    projects_id: Int!
+    updated_at: Date
+}
+
+type PersonTypes {
+    created_at: Date
+    description: String
+    id: Int
+    peoples: [People]
+    personsNotifys: [PersonNotify]
+    tasksTypesPeoplesTypes: [TaskTypesPeopleTypes]
+    updated_at: Date
+}
+
+type Position {
+    created_at: Date
+    id: Int
+    lat: Float
+    lng: Float
+    peopleIdObject: People
+    people_id: Int!
+    updated_at: Date
+}
+
+type PositionBck {
+    created_at: Date
+    id: Int
+    lat: Float
+    lng: Float
+    peopleIdObject: People
+    people_id: Int!
+    updated_at: Date
+}
+
+type Profiles {
+    created_at: Date
+    description: String!
+    id: Int
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int!
+}
+
+type Progress {
+    cantidad: Int
+    description: String
+    porcentaje: Float
+    project_id: Int
+    terminados: Int
+}
+
+type ProjectMaterials {
+    calibre: String
+    calibre_unit: String
+    count: Int
+    created_at: Date
+    description: String!
+    id: Int
+    materialIdObject: Materials
+    material_id: Int!
+    materialsTasks: [MaterialTasks]
+    projectIdObject: Projects
+    project_id: Int!
+    quantity_high_unit: String
+    quantity_long_unit: String
+    quantity_measure_high: String
+    quantity_measure_long: String
+    quantity_measure_wide: String
+    quantity_wide_unit: String
+    updated_at: Date
+    weigth_count: String
+}
+
+type ProjectMaterialsPaginator {
+    count: Int
+    rows: [ProjectMaterials]
+}
+
+type ProjectRecurrence {
+    created_at: Date
+    deleted_at: Date
+    id: Int
+    is_active: Int!
+    projectIdObject: Projects
+    project_id: Int
+    projects: [Projects]
+    typePeriodicityIdObject: TypePeriodicity
+    type_periodicity_id: Int
+    updated_at: Date
+}
+
+type Projects {
+    asset: String
+    ciudad: String
+    cluster: String
+    count_time_sec_est: Int
+    created_at: Date
+    description: String
+    detail: String!
+    duration: Float
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    id: Int
+    id_sitio: String
+    nocsProjects: [NocProject]
+    personsNotifysProjects: [PersonNotifyProject]
+    plano: String
+    price: Float
+    prioridad: String
+    projectRecurrenceIdObject: ProjectRecurrence
+    project_datetime_end: Date
+    project_datetime_init: Date
+    project_prototype_id: Int
+    project_recurrence_id: Int
+    projectsMaterials: [ProjectMaterials]
+    projectsRecurrences: [ProjectRecurrence]
+    prototypeProjectIdObject: PrototypeProject
+    prototypesProjects: [PrototypeProject]
+    quantity: Int
+    region: String
+    requerimiento: String
+    severidad: String
+    sitesIdObject: Sites
+    sites_id: Int
+    sitio: String
+    stateRecipeIdObject: StateProjects
+    state_recipe_id: Int!
+    supervisions: [Supervision]
+    supportsAttachments: [SupportAttachment]
+    tasks: [Tasks]
+    ticket: String
+    tipo_sitio: String
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int
+}
+
+type ProjectsPaginator {
+    count: Int
+    rows: [Projects]
+}
+
+type PrototypeProject {
+    created_at: Date
+    deleted_at: Date
+    id: Int
+    projectIdObject: Projects
+    project_id: Int
+    projects: [Projects]
+    prototype_description: String
+    prototype_name: String
+    updated_at: Date
+}
+
+type PrototypeProjectPaginator {
+    count: Int
+    rows: [PrototypeProject]
+}
+
+type Provider {
+    created_at: Date
+    detail: String
+    id: Int
+    supportsAttachments: [SupportAttachment]
+    updated_at: Date
+}
+
+type Query {
+    _: Boolean
+    allAssignedTasksByPage(count: Int!, page: Int!): TaskPeoplePaginator!
+    allC2gPermissionRole: [C2gPermissionRole]!
+    allC2gPermissionUser: [C2gPermissionUser]!
+    allC2gRole: [C2gRole]!
+    allC2gRoleUser: [C2gRoleUser]!
+    allC2gTypeModel: [C2gTypeModel]!
+    allC2gUser: [C2gUser]!
+    allC2gUserByPage(count: Int!, page: Int!): [C2gUser]!
+    allChecklistByProjectIdByPersonId(count: Int!, page: Int!, person_id: Int!, project_id: Int!): [ITaskPeopleNocChecklist]!
+    allChecklistResponseByPage(count: Int!, page: Int!): [ChecklistResponse]!
+    allChecklistSubtask: [ChecklistSubtask]!
+    allEventRunStateByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [EventRunStates]!
+    allEventRunStates: [EventRunStates]!
+    allEventRunStatesByPage(count: Int!, page: Int!): [EventRunStates]!
+    allEventsRunStateTaskPeopleWhereTaskPeopleId(task_people_id: Int!): [EventsRunStateTaskPeople]!
+    allFormLabel: [FormLabel]!
+    allFormLabelByPage(count: Int!, page: Int!): [FormLabel]!
+    allFormLabelByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [FormLabel]!
+    allFormOutline: [FormOutline]!
+    allFormOutlineByPage(count: Int!, page: Int!): [FormOutline]!
+    allFormOutlineByPageWhereFormNameLike(cadena: String!, count: Int!, page: Int!): [FormOutline]!
+    allFormSection: [FormSection]!
+    allFormSectionByPage(count: Int!, page: Int!): [FormSection]!
+    allFormSectionByPageWhereDescriptionTitleLike(cadena: String!, count: Int!, page: Int!): [FormSection]!
+    allFormSegment: [FormSegment]!
+    allFormSegmentByPage(count: Int!, page: Int!): [FormSegment]!
+    allFormSegmentByPageWhereDescriptionTitleLike(cadena: String!, count: Int!, page: Int!): [FormSegment]!
+    allImageProc: [ImageProc]!
+    allImageProcBySubtaskTypeId(subtask_types_id: Int!): [ImageProc]!
+    allLimitationsType: [LimitationsType]!
+    allLimitationsTypeBySubtaskTypeId(subtask_types_id: Int!): [LimitationsType]!
+    allLimitationsWork: [LimitationsWork]!
+    allMaterialTasks: [MaterialTasks]!
+    allMaterialTypes: [MaterialTypes]!
+    allMaterialTypesByPage(count: Int!, page: Int!): [MaterialTypes]!
+    allMaterialTypesByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [MaterialTypes]!
+    allMaterials: [Materials]!
+    allMaterialsByPage(count: Int!, page: Int!): [Materials]!
+    allMaterialsByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [Materials]!
+    allMaterialsWhereNameMaterialLike(string: String!): [Materials]!
+    allMenuPermission: [C2gPermission]!
+    allNoc: [Noc]!
+    allNocState: [NocState]!
+    allOptionType: [OptionType]!
+    allOptionTypeByPage(count: Int!, page: Int!): [OptionType]!
+    allOptionTypeByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [OptionType]!
+    allPeople: [People]!
+    allPeopleByPage(count: Int!, page: Int!): [People]!
+    allPeopleByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [People]
+    allPeopleWhereEmailLike(text: String!): [People]!
+    allPeopleWhereNamesOrLastnamesLike(text: String!): [People]!
+    allPersonTypes: [PersonTypes]!
+    allPersonTypesByPage(count: Int!, page: Int!): [PersonTypes]!
+    allPersonTypesByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [PersonTypes]!
+    allProjectMaterials: [ProjectMaterials]!
+    allProjectMaterialsByPage(count: Int!, page: Int!, project_id: Int!): [ProjectMaterials]!
+    allProjectMaterialsWhereProjectId(project_id: Int!): [ProjectMaterials]!
+    allProjectMaterialsWhereProjectIdAndNameMaterialLike(project_id: Int!, text: String!): [ProjectMaterials]!
+    allProjectRecurrence: [ProjectRecurrence]!
+    allProjectRecurrenceByPage(count: Int!, page: Int!): [ProjectRecurrence]!
+    allProjectRecurrenceByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [ProjectRecurrence]!
+    allProjects: [Projects]!
+    allProjectsByNocId(noc_id: Int!): [Projects]!
+    allProjectsByPage(count: Int!, page: Int!): [Projects]!
+    allProjectsByPageByDate(count: Int!, date_end: Date!, date_init: Date!, page: Int!): [Projects]!
+    allProjectsByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [Projects]!
+    allProjectsTerminatedByPage(count: Int!, page: Int!): [Projects]!
+    allPrototypeProject: [PrototypeProject]!
+    allPrototypeProjectByPage(count: Int!, page: Int!): [PrototypeProject]!
+    allPrototypeProjectByPageWhereProtoypeNameLike(cadena: String!, count: Int!, page: Int!): [PrototypeProject]!
+    allQuestionDisable: [QuestionDisable]!
+    allQuestionDisableByPage(count: Int!, page: Int!): [QuestionDisable]!
+    allQuestionDisableByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [QuestionDisable]!
+    allReasonByFormPatern: [ReasonByFormPatern]!
+    allReasonByFormPaternByPage(count: Int!, page: Int!): [ReasonByFormPatern]!
+    allReasonByFormPaternByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [ReasonByFormPatern]!
+    allReasonByFormSection: [ReasonByFormSection]!
+    allReasonByFormSectionByPage(count: Int!, page: Int!): [ReasonByFormSection]!
+    allReasonByFormSectionByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [ReasonByFormSection]!
+    allReasonByFormSegment: [ReasonByFormSegment]!
+    allReasonByFormSegmentByPage(count: Int!, page: Int!): [ReasonByFormSegment]!
+    allReasonByFormSegmentByPageWhereDescriptionNextLike(cadena: String!, count: Int!, page: Int!): [ReasonByFormSegment]!
+    allResponseDisable: [ResponseDisable]!
+    allResponseDisableByPage(count: Int!, page: Int!): [ResponseDisable]!
+    allResponseTaskPeople: [ResponseTaskPeople]!
+    allResponseTaskPeopleByPage(count: Int!, page: Int!): [ResponseTaskPeople]!
+    allResponseType: [ResponseType]!
+    allResponseTypeByIdSegment(idSegment: Int): [ResponseType]!
+    allResponseTypeByPage(count: Int!, idSegment: Int, page: Int!): [ResponseType]!
+    allResponseTypeByPageWhereDescriptionLike(cadena: String!, count: Int!, idSegment: Int, page: Int!): [ResponseType]!
+    allSites: [Sites]!
+    allSitesByPage(count: Int!, page: Int!): [Sites]!
+    allSitesWhereSitenameLike(string: String!): [Sites]!
+    allStateProjects: [StateProjects]!
+    allSubtaskTypes: [SubtaskTypes]!
+    allSubtaskTypesByPage(count: Int!, page: Int!): [SubtaskTypes]!
+    allSubtaskTypesWhereTaskTypesId(task_types_id: Int): [SubtaskTypes]!
+    allSubtaskTypesWhereTaskTypesIdAndDescriptionLike(task_types_id: Int!, text: String!): [SubtaskTypes]!
+    allSubtasktypesByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [SubtaskTypes]!
+    allTaskPeople: [TaskPeople]!
+    allTaskTypes: [TaskTypes]!
+    allTaskTypesByPage(count: Int!, page: Int!): [TaskTypes]!
+    allTaskTypesByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): [TaskTypes]!
+    allTaskTypesWhereDescriptionLike(text: String!): [TaskTypes]!
+    allTasksByPageWhereProjectId(count: Int!, page: Int!, project_id: Int!): [Tasks]!
+    allTimeWo: [TimeWo]!
+    allToolsType: [ToolsType]!
+    allToolsTypeBySubtaskTypeId(subtask_types_id: Int!): [ToolsType]!
+    allToolsWork: [ToolsWork]!
+    allTypePeriodicity: [TypePeriodicity]!
+    allUsersByPage(count: Int!, page: Int!): [Users]!
+    checklist(id: Int!): Checklist!
+    checklistResponse(id: Int!): ChecklistResponse!
+    countC2gUser: Int!
+    countChecklistByProjectIdByPersonId(person_id: Int!, project_id: Int!): Int!
+    countChecklistResponse: Int!
+    countEventRunStateByPageWhereDescriptionLike(description: String!): Int!
+    countEventRunStates: Int!
+    countFormLabel: Int!
+    countFormLabelWhereDescriptionLike(cadena: String!): Int!
+    countFormOutline: Int!
+    countFormOutlineWhereFormNameLike(cadena: String!): Int!
+    countFormSection: Int!
+    countFormSectionWhereDescriptionTitleLike(cadena: String!): Int!
+    countFormSegment: Int!
+    countFormSegmentWhereDescriptionTitleLike(cadena: String!): Int!
+    countMaterialTypes: Int!
+    countMaterialTypesWhereDescriptionLike(cadena: String!): Int!
+    countMaterials: Int!
+    countMaterialsWhereNameMaterialLike(cadena: String!): Int!
+    countOptionType: Int!
+    countOptionTypeWhereDescriptionLike(cadena: String!): Int!
+    countPeople: Int!
+    countPeopleWhereAttributeLike(cadena: String!): Int!
+    countPersonTypes: Int!
+    countPersonTypesWhereDescriptionLike(cadena: String!): Int!
+    countProjectMaterials(project_id: Int!): Int!
+    countProjectRecurrence: Int!
+    countProjects: Int!
+    countProjectsByDate(date_end: Date!, date_init: Date!): Int!
+    countProjectsTerminated: Int!
+    countProjectsWhereDescriptionLike(cadena: String!): Int!
+    countPrototypeProject: Int!
+    countQuestionDisable: Int!
+    countQuestionDisableWhereDescriptionLike(cadena: String!): Int!
+    countReasonByFormPatern: Int!
+    countReasonByFormPaternWhereDescriptionLike(cadena: String!): Int!
+    countReasonByFormSection: Int!
+    countReasonByFormSectionWhereDescriptionLike(cadena: String!): Int!
+    countReasonByFormSegment: Int!
+    countReasonByFormSegmentWhereDescriptionNextLike(cadena: String!): Int!
+    countResponseDisable: Int!
+    countResponseTaskPeople: Int!
+    countResponseType(idSegment: Int): Int!
+    countResponseTypeByIdSegment(idSegment: Int!): Int!
+    countResponseTypeWhereDescriptionLike(cadena: String!, idSegment: Int): Int!
+    countSites: Int!
+    countSubtaskTypes: Int!
+    countSubtasktypesByPageWhereDescriptionLike(description: String!): Int!
+    countTaskPeopleNoc(date_end: Date!, date_init: Date!, person_id: Int): Int!
+    countTaskPeopleNocLikeTicketId(date_end: Date!, date_init: Date!, person_id: Int, text: Int!): Int!
+    countTaskPeopleNocReportWithPauseByPageWhereProjectId(person_id: Int!, project_id: Int!): Int!
+    countTaskTypes: Int!
+    countTaskTypesWhereDescriptionLike(cadena: String!): Int!
+    countTasksWhereProjectId(project_id: Int!): Int!
+    countUsers: Int!
+    eventRunStates(id: Int!): EventRunStates!
+    findAndCountAllFindingsByPageWhereSitesId(count: Int!, page: Int!, sites_id: Int!): FindingsPaginator!
+    findAndCountAllProjectMaterialsByPageWhereProjectId(count: Int!, page: Int!, project_id: Int!): ProjectMaterialsPaginator!
+    findAndCountAllProjectMaterialsByPageWhereProjectIdAndNameMaterialLike(count: Int!, page: Int!, project_id: Int!, text: String!): ProjectMaterialsPaginator!
+    findAndCountAllProjectsByPage(count: Int!, page: Int!): ProjectsPaginator!
+    findAndCountAllProjectsByPageWhereDescriptionLike(cadena: String!, count: Int!, page: Int!): ProjectsPaginator!
+    findAndCountAllProjectsTerminatedByPage(count: Int!, page: Int!): ProjectsPaginator!
+    findAndCountAllProjectsTerminatedByPageWhereDescriptionLike(count: Int!, page: Int!, text: String!): ProjectsPaginator!
+    findAndCountAllPrototypeProjectByPage(count: Int!, page: Int!): PrototypeProjectPaginator!
+    findAndCountAllPrototypeProjectByPageWherePrototypeNameLike(cadena: String!, count: Int!, page: Int!): PrototypeProjectPaginator!
+    findAndCountAllSitesByPage(count: Int!, page: Int!): SitesPaginator!
+    findAndCountAllSitesByPageWhereIdnokiaLike(count: Int!, page: Int!, text: String!): SitesPaginator!
+    findAndCountAllSitesByPageWhereSitenameLike(count: Int!, page: Int!, text: String!): SitesPaginator!
+    formLabel(id: Int!): FormLabel!
+    formOutline(id: Int!): FormOutline!
+    formOutlineForResponseTaskPeople(id: Int!): [FormSegment]!
+    formSection(id: Int!): FormSection!
+    formSegment(id: Int!): FormSegment!
+    getInfoTasksOfProjectsInProd(project_id: Int!): [TasksInfo]!
+    getPeopleResponsableOfTask(id_task: Int!): Tasks!
+    imageProc(id: Int!): ImageProc!
+    limitationsType(id: Int!): LimitationsType!
+    limitationsWork(id: Int!): LimitationsWork!
+    materialTypes(id: Int!): MaterialTypes!
+    materialWhereHasTask(has_task: Int!): Materials!
+    materials(id: Int!): Materials!
+    materialsByTipo(tipo: String!): [Materials]!
+    materialsExceptProjectMaterials(cadena: String!, project_id: Int!): [Materials]!
+    optionType(id: Int!): OptionType!
+    people(id: Int!): People!
+    personTypes(id: Int!): PersonTypes!
+    progressOfProjectsInProd: [Progress]!
+    projectMaterialsForTasks(has_task: Int!, project_id: Int!): [ProjectMaterials]!
+    projectRecurrence(id: Int!): ProjectRecurrence!
+    projects(id: Int!): Projects!
+    questionDisable(id: Int!): QuestionDisable!
+    reasonByFormPatern(id: Int!): ReasonByFormPatern!
+    reasonByFormSection(id: Int!): ReasonByFormSection!
+    reasonByFormSegment(id: Int!): ReasonByFormSegment!
+    responseDisable(id: Int!): ResponseDisable!
+    responseTaskPeople(id: Int!): ResponseTaskPeople!
+    responseType(id: Int!): ResponseType!
+    sites(id: Int!): Sites!
+    sitesByIdaltan(idaltan: String!): [Sites]!
+    subTaskTypeByIdTask(id_task: Int!): SubtaskTypes!
+    subtaskTypes(id: Int!): SubtaskTypes!
+    taskPeopleNoc(count: Int!, date_end: Date!, date_init: Date!, page: Int!, person_id: Int): [ITaskPeopleNoc]!
+    taskPeopleNocLikeTicketIdIndex(count: Int!, date_end: Date!, date_init: Date!, page: Int!, person_id: Int, text: Int!): [ITaskPeopleNoc]!
+    taskPeopleNocReportWithPauseByPageWhereProjectId(count: Int!, page: Int!, person_id: Int!, project_id: Int!): [ITaskPeopleNoc]!
+    taskTypes(id: Int!): TaskTypes!
+    tasks(id: Int!): Tasks!
+    tasksByIdProject(project_id: Int!): [ITasksMobile]!
+    timeWo(id: Int!): TimeWo!
+    toolsType(id: Int!): ToolsType!
+    toolsWork(id: Int!): ToolsWork!
+    workOrdersMobile: [IWorkOrdersMobile]!
+}
+
+type QuestionDisable {
+    action_yes: Int
+    created_at: Date
+    description: String
+    formLabelIdObject: FormLabel
+    form_label_id: Int
+    id: Int
+    responseTypeIdObject: ResponseType
+    response_type_id: Int
+    updated_at: Date
+}
+
+type ReasonByFormPatern {
+    created_at: Date
+    description_patern: String
+    formOutlineIdObject: FormOutline
+    form_outline_id: Int
+    id: Int
+    is_next_form_patern: String
+    responeTypeIdObject: ResponseType
+    response_type_id: Int
+    updated_at: Date
+}
+
+type ReasonByFormSection {
+    created_at: Date
+    description: String
+    formSectionIdObject: FormSection
+    form_section_id: Int!
+    id: Int
+    is_next_section: String
+    responseTypeIdObject: ResponseType
+    response_type_id: Int
+    updated_at: Date
+}
+
+type ReasonByFormSegment {
+    created_at: Date
+    description_next: String
+    formSegmentIdObject: FormSegment
+    form_segment_id: Int
+    id: Int
+    is_next_segment: String
+    responseTypeIdObject: ResponseType
+    response_type_id: Int
+    updated_at: Date
+}
+
+type ResponseDisable {
+    action_yes: Int
+    created_at: Date
+    id: Int
+    reponseTypeReciverIdObject: ResponseType
+    responseTypeInitiatorIdObject: ResponseType
+    response_type_initiator_id: Int
+    response_type_reciver_id: Int
+    updated_at: Date
+}
+
+type ResponseTaskPeople {
+    audio_file: String
+    created_at: Date
+    id: Int!
+    responseTypeIdObject: ResponseType
+    response_boolean: Int
+    response_type_id: Int
+    taskPeopleIdObject: TaskPeople
+    task_people_id: Int
+    text_response: String
+    updated_at: Date
+}
+
+type ResponseType {
+    coordinate_x: Int
+    coordinate_y: Int
+    created_at: Date
+    description: String
+    description_help: String
+    description_tool_tip: String
+    formLabelIdObject: FormLabel
+    formSegmentIdObject: FormSegment
+    form_label_id: Int
+    form_segment_id: Int
+    id: Int
+    is_disabling: Int
+    item_label: String
+    optionTypeIdObject: OptionType
+    option_type_id: Int
+    pos: Int
+    questionsDisables: [QuestionDisable]
+    reasonsBysFormsPaterns: [ReasonByFormPatern]
+    reasonsBysFormsSections: [ReasonByFormSection]
+    reasonsBysFormsSegments: [ReasonByFormSegment]
+    regular_expression: String
+    required: Int
+    responsesDisables: [ResponseDisable]
+    responsesDisables0s: [ResponseDisable]
+    responsesTasksPeoples: [ResponseTaskPeople]
+    updated_at: Date
+}
+
+type RoleUser {
+    created_at: Date
+    id: Int
+    roleIdObject: C2gRole
+    role_id: Int!
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int!
+}
+
+type Roles {
+    created_at: Date
+    description: String
+    id: Int
+    level: Int!
+    name: String!
+    slug: String!
+    updated_at: Date
+}
+
+type Salaries {
+    active: Int
+    amount: Float!
+    created_at: Date
+    id: Int
+    peopleIdObject: People
+    people_id: Int!
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int
+}
+
+type Sites {
+    antena: String
+    city: String
+    cluster: String
+    created_at: Date
+    estate: String
+    findings: [Findings]
+    groupsCuadrillas: [GroupCuadrilla]
+    id: Int
+    idaltan: String
+    idnokia: String
+    latitud: String
+    longitud: String
+    municipality: String
+    peopleIdObject: People
+    people_id: Int
+    priority: String
+    projects: [Projects]
+    region: String
+    sitename: String
+    status: String
+    towerid: String
+    towertype: String
+    txclutter: String
+    txsolutions: String
+    updated_at: Date
+    workpackage: String
+}
+
+type SitesPaginator {
+    count: Int
+    rows: [Sites]
+}
+
+type SpareParts {
+    almacen: String
+    asset_altan: String
+    ciudad: String
+    cluster: String
+    created_at: Date
+    descripcion_parte: String
+    fecha_despacho_sitio: Date
+    fecha_entrega_sitio: Date
+    fecha_solicitud: Date
+    id: Int
+    id_sitio_altan: String
+    modelo: String
+    nombre: String
+    nombre_sitio: String
+    numero_parte: String
+    numero_serie: String
+    prioridad: String
+    referencia: String
+    region: String
+    severidad: String
+    ticket_itsm: String
+    tipo_sitio: String
+    updated_at: Date
+}
+
+type StateProjects {
+    created_at: Date
+    description: String
+    id: Int
+    progres_bar: String
+    projects: [Projects]
+    updated_at: Date
+}
+
+type Subscription {
+    _: Boolean
+    newWorkOrder: IWorkOrdersMobile!
+}
+
+type SubtaskTypes {
+    checklists: [Checklist]
+    created_at: Date
+    dependency: Int
+    description: String
+    formsOutlines: [FormOutline]
+    id: Int
+    imagesProcs: [ImageProc]
+    is_checklist: Int
+    is_form_outline: Int
+    limitationsWorks: [LimitationsWork]
+    taskTypesIdObject: TaskTypes
+    task_types_id: Int!
+    tasks: [Tasks]
+    tasksTypesPeoplesTypes: [TaskTypesPeopleTypes]
+    time_in_sec_est: Int
+    toolsWorks: [ToolsWork]
+    typeWorkIdObject: TypeWork
+    type_work_id: Int
+    updated_at: Date
+}
+
+type Supervision {
+    check: Int
+    created_at: Date
+    id: Int
+    peopleIdObject: People
+    people_id: Int
+    projectsIdObject: Projects
+    projects_id: Int
+    tasksIdObject: Tasks
+    tasks_id: Int
+    updated_at: Date
+}
+
+type SupportAttachment {
+    cost: Float
+    created_at: Date
+    detalle: String
+    file_support: Int
+    filesTypes: [FileType]
+    id: Int
+    projectsIdObject: Projects
+    projects_id: Int!
+    providerIdObject: Provider
+    provider_id: Int
+    updated_at: Date
+}
+
+type SupportAttachmentTaskPeople {
+    detail: String
+    fileTypeIdObject: FileType
+    file_support: Int
+    file_type_id: Int!
+    id: Int!
+    taskPeopleIdObject: TaskPeople
+    task_people_id: Int!
+}
+
+type Table54 {
+    id: ID
+}
+
+type Table55 {
+    id: ID
+}
+
+type Table56 {
+    id: ID
+}
+
+type TaskPeople {
+    created_at: Date
+    end_time_work: Date
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    eventsRunsStatesTasksPeoples: [EventsRunStateTaskPeople]
+    id: Int
+    init_time_work: Date
+    lat_end: Float
+    lat_ini: Float
+    lon_end: Float
+    lon_ini: Float
+    path_evidencia: String
+    personIdObject: People
+    person_id: Int!
+    responsesTasksPeoples: [ResponseTaskPeople]
+    supportsAttachmentsTasksPeoples: [SupportAttachmentTaskPeople]
+    taskIdObject: Tasks
+    task_id: Int!
+    updated_at: Date
+}
+
+type TaskPeoplePaginator {
+    count: Int
+    rows: [TaskPeople]
+}
+
+type TaskTypes {
+    created_at: Date
+    description: String
+    id: Int
+    subtasksTypes: [SubtaskTypes]
+    updated_at: Date
+}
+
+type TaskTypesPeopleTypes {
+    created_at: Date
+    id: Int
+    personTypesIdObject: PersonTypes
+    person_types_id: Int!
+    subTaskTypeIdObject: SubtaskTypes
+    sub_task_type_id: Int!
+    updated_at: Date
+}
+
+type Tasks {
+    checklistsResponses: [ChecklistResponse]
+    created_at: Date
+    current_progress: Int
+    description: String!
+    end_at: Date
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    estimated_time: Float
+    id: Int
+    init_at: Date
+    materialsTasks: [MaterialTasks]
+    projectIdObject: Projects
+    project_id: Int!
+    quantity_dependency: Int
+    quantity_real_time_used: Int
+    quantity_task: Int
+    state: String
+    subTaskTypeIdObject: SubtaskTypes
+    sub_task_type_id: Int!
+    supervisions: [Supervision]
+    tasksPeoples: [TaskPeople]
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int
+}
+
+type TasksInfo {
+    tareas_por_terminar: Int
+    tareas_riesgo: Int
+    tareas_terminadas: Int
+    tareas_terminadas_antes: Int
+    tareas_terminadas_despues: Int
+    total_tareas: Int
+}
+
+type TimeWo {
+    created_at: Date
+    id: Int
+    minutos: String
+    prioridad: String
+    severidad: String
+    updated_at: Date
+}
+
+type ToolsType {
+    created_at: Date
+    description: String
+    id: Int
+    path_img_suport: String
+    toolsWorks: [ToolsWork]
+    updated_at: Date
+}
+
+type ToolsWork {
+    created_at: Date
+    id: Int
+    subtaskTypesIdObject: SubtaskTypes
+    subtask_types_id: Int!
+    toolsTypeIdObject: ToolsType
+    tools_type_id: Int!
+    updated_at: Date
+}
+
+type TypePeriodicity {
+    created_at: Date
+    description: String
+    hour_of_day: Date
+    id: Int
+    periodicity_in_second: Int
+    projectsRecurrences: [ProjectRecurrence]
+    updated_at: Date
+}
+
+type TypeWork {
+    created_at: Date
+    description: String
+    id: Int!
+    subtasksTypes: [SubtaskTypes]
+    updated_at: Date
+}
+
+type Units {
+    created_at: Date
+    id: Int
+    name: String
+    type: Int
+    updated_at: Date
+}
+
+type UserProfiles {
+    created_at: Date
+    id: Int
+    profile_id: Int!
+    updated_at: Date
+    userIdObject: C2gUser
+    user_id: Int!
+}
+
+type UserTypes {
+    description: String!
+    id: Int
+}
+
+type Users {
+    address: String
+    avatar: String
+    created_at: Date
+    dni: String
+    email: String!
+    email_verification_code: String
+    email_verified: String!
+    id: Int
+    lastname: String
+    mobilephone: String
+    name: String!
+    oauth_provider: String
+    oauth_provider_id: String
+    password: String!
+    phone: String
+    remember_token: String
+    team_id: Int
+    updated_at: Date
+}
+
+type Vehicules {
+    created_at: Date
+    id: Int
+    id_gps: String
+    marca: String
+    modelo: String
+    peopleIdObject: People
+    people_id: Int!
+    placas: String
+    updated_at: Date
+}
+
+enum CacheControlScope {
+    PRIVATE
+    PUBLIC
+}
+
+enum Order {
+    ASC
+    DESC
+}
+
+enum Role {
+    ADMIN
+    USER
+}
+
+input C2gPermissionMutation {
+    description: String
+    icon: String
+    model: String
+    model_type_id: Int
+    name: String
+    orden: Int
+    parent_id: Int
+}
+
+input C2gPermissionRoleMutation {
+    permission_id: Int
+    role_id: Int
+}
+
+input C2gPermissionUserMutation {
+    permission_id: Int
+    user_id: Int
+}
+
+input C2gRoleMutation {
+    description: String
+    name: String
+}
+
+input C2gRoleUserMutation {
+    role_id: Int
+    user_id: Int
+}
+
+input C2gTypeModelMutation {
+    description: String
+}
+
+input C2gUserMutation {
+    addres: String
+    avatar: String
+    dni: String
+    email: String
+    email_verified: Int
+    lastname: String
+    mobile_phone: String
+    name: String
+    oauth_provider: String
+    oauth_provider_id: String
+    phone: String
+    team_id: Int
+    uid_firebase: String
+}
+
+input ChecklistMutation {
+    name: String
+    subtask_types_id: Int!
+    val_max: String
+    val_min: String
+}
+
+input ChecklistResponseMutation {
+    checklist_id: Int!
+    comentario: String
+    end_at: Date
+    gravity: Float
+    lat: Float
+    lon: Float
+    path_evidencia: String
+    path_image: Upload
+    response: String
+    rta_usr: Int
+    tasks_id: Int!
+    temperature: Float
+    vibration: Float
+}
+
+input EventRunStatesMutation {
+    description: String
+}
+
+input EventsRunStateTaskPeopleMutation {
+    end_at: Date
+    lat: Float
+    lon: Float
+    task_people_id: Int!
+    task_run_state_id: Int!
+}
+
+input EventsRunStateTaskPeopleMutationUpdate {
+    end_at: Date
+    lat: Float
+    lon: Float
+    task_people_id: Int
+    task_run_state_id: Int
+}
+
+input FileTypeMutation {
+    description: String!
+    support_attachment_id: Int!
+}
+
+input FindingFilesMutation {
+    findings_id: Int
+    path: String
+}
+
+input FindingStatusMutation {
+    name: String
+}
+
+input FindingsMutation {
+    checklist_id: Int
+    closed: Int
+    description: String
+    fecha_programacion: Date
+    finding_status_id: Int
+    name: String
+    path_image: String
+    sites_id: Int!
+}
+
+input FormLabelMutation {
+    description: String
+    pos: Int
+}
+
+input FormOutlineMutation {
+    description: String
+    internal_code: String
+    name_form: String
+    subtask_types_ud: Int
+}
+
+input FormSectionMutation {
+    description_repeat: String
+    description_text: String
+    description_title: String
+    is_anexo: Int
+    is_repeat: Int
+    pos: Int
+}
+
+input FormSegmentMutation {
+    description_text: String
+    description_title: String
+    form_outline_id: Int
+    form_section_id: Int
+    pos: Int
+}
+
+input FormatMailMutation {
+    active: Int
+    subject: String
+    text_mail: String
+}
+
+input GroupCuadrillaMutation {
+    format_mail_id: Int
+    people_id: Int
+    sites_id: Int
+}
+
+input ImageProcMutation {
+    description: String
+    path: Upload
+    subtask_types_id: Int!
+}
+
+input LimitationsTypeMutation {
+    description: String
+    path_img_suport: Upload
+}
+
+input LimitationsWorkMutation {
+    limitations_type_id: Int!
+    subtask_types_id: Int!
+}
+
+input MaterialDeliveryMutation {
+    material_task_id: Int
+    people_id: [Int]
+    quantity: Float
+}
+
+input MaterialTasksMutation {
+    count: Int
+    has_material: Int
+    project_materials_id: Int!
+    tasks_id: Int!
+}
+
+input MaterialTypesMutation {
+    description: String
+}
+
+input MaterialsMutation {
+    almacen: String
+    asset: String
+    calibre: String
+    calibre_unit: String
+    ciudad: String
+    cluster: String
+    cotizacion: String
+    count_store: Int
+    descripcion: String
+    despacho: Date
+    has_task: Int!
+    id_sitio: String
+    material_type_id: Int!
+    modelo: String
+    name_material: String
+    orden: String
+    parte: String
+    pdf: String
+    price: Float
+    quantity_high_unit: String
+    quantity_long_unit: String
+    quantity_measure_high: String
+    quantity_measure_long: String
+    quantity_measure_wide: String
+    quantity_wide_unit: String
+    recepcion: Date
+    referencia: String
+    region: String
+    serie: String
+    sitio: String
+    solicitante: String
+    ticket: String
+    tipo: String
+    tipo_sitio: String
+    transferencia: String
+    user_id: Int
+    weigth_count: String
+    xml: String
+}
+
+input MenusMutation {
+    icon: String!
+    manage: String!
+    menu_type: String
+    name: String!
+    orden: String
+    parent_id: Int
+    url: String
+}
+
+input NocFileMutation {
+    filename: String
+    noc_id: Int
+}
+
+input NocHistorialMutation {
+    noc_id: Int!
+    noc_state_id: Int!
+}
+
+input NocMutation {
+    acceso_sitio: String
+    actividad: String
+    alarma: String
+    alarmid: String
+    alarmname: String
+    assingto: String
+    attachment: String
+    bcf: String
+    bsc: String
+    categoria_sitio: String
+    cdr_noc: String
+    clusters: String
+    coordinateNokia: String
+    creator: String
+    creatorprofile: String
+    description: String
+    elemento_red: String
+    estado: String
+    faultSubcategory: String
+    faultType: String
+    faultfirstoccurtime: String
+    faultlastoccurtime: String
+    faultlevel: String
+    fecha_programacion: Date
+    id_altan: Int
+    id_noc: Int
+    integratedticketid: String
+    interfaceid: String
+    nature: String
+    noc_state_id: Int!
+    operador_noc: String
+    operatedby: String
+    operatetime: String
+    operationmode: String
+    orderseq: String
+    priority: String
+    probablecause: String
+    profile: String
+    projectid: String
+    projectname: String
+    region: String
+    requiredfinishtime: String
+    service: String
+    serviceImpact: String
+    severity: String
+    siteAddress: String
+    siteCoordinats: String
+    siteName: String
+    sitePriority: String
+    siteid: String
+    sitesEffected: String
+    sitio: String
+    solution: String
+    spareParts: String
+    status: String
+    subelemento_red: String
+    tarea_noc: String
+    taskTitle: String
+    tasktype: String
+    ticketid: String
+    tipo: String
+    title: String
+    userid: String
+    vendorId: String
+    ventana: String
+    work_order: String
+    workflowtype: String
+}
+
+input NocProjectMutation {
+    noc_id: Int!
+    projects_id: Int!
+}
+
+input NocStateMutation {
+    name: String
+}
+
+input NotifyTypeMutation {
+    description: String
+}
+
+input OptionTypeMutation {
+    description: String
+}
+
+input PasswordResetsMutation {
+    email: String!
+    token: String!
+}
+
+input PeopleMutation {
+    address: String
+    c2g_user_id: Int
+    code_serial_num: String
+    curp: String
+    dni: String
+    email: String
+    email_sent: String
+    employee_number: String
+    empresa: String
+    imei: String
+    imss: String
+    lastnames: String!
+    names: String!
+    password_people: String
+    peoplecol: String
+    person_type_id: Int!
+    phone: String
+    rfc: String
+    rfid_num: String
+    user_id: Int
+}
+
+input PermissionRoleMutation {
+    permission_id: Int!
+    role_id: Int!
+}
+
+input PermissionUserMutation {
+    permission_id: Int!
+    user_id: Int!
+}
+
+input PermissionsMutation {
+    description: String
+    model: String
+    name: String!
+    slug: String!
+}
+
+input PersonNotifyMutation {
+    address: String
+    code_serial_num: String
+    dni: String!
+    email: String
+    employee_number: String
+    imei: String
+    lastnames: String!
+    names: String!
+    password_people: String
+    peoplecol: String
+    person_type_id: Int!
+    phone: String
+    rfid_num: String
+    user_id: Int
+}
+
+input PersonNotifyProjectMutation {
+    notify_type_id: Int!
+    person_notify_id: Int!
+    projects_id: Int!
+}
+
+input PersonTypesMutation {
+    description: String
+}
+
+input PositionBckMutation {
+    lat: Float
+    lng: Float
+    people_id: Int!
+}
+
+input PositionMutation {
+    lat: Float
+    lng: Float
+    people_id: Int!
+}
+
+input ProfilesMutation {
+    description: String!
+    user_id: Int!
+}
+
+input ProjectMaterialsMutation {
+    calibre: String
+    calibre_unit: String
+    count: Int
+    description: String!
+    material_id: Int!
+    project_id: Int!
+    quantity_high_unit: String
+    quantity_long_unit: String
+    quantity_measure_high: String
+    quantity_measure_long: String
+    quantity_measure_wide: String
+    quantity_wide_unit: String
+    weigth_count: String
+}
+
+input ProjectRecurrenceMutation {
+    deleted_at: Date
+    is_active: Int
+    project_id: Int
+    type_periodicity_id: Int
+}
+
+input ProjectsMutation {
+    asset: String
+    ciudad: String
+    cluster: String
+    count_time_sec_est: Int
+    description: String
+    detail: String!
+    duration: Float
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    id_sitio: String
+    plano: String
+    price: Float
+    prioridad: String
+    project_datetime_end: Date
+    project_datetime_init: Date
+    project_prototype_id: Int
+    project_recurrence_id: Int
+    quantity: Int
+    region: String
+    requerimiento: String
+    severidad: String
+    sites_id: Int
+    sitio: String
+    state_recipe_id: Int!
+    ticket: String
+    tipo_sitio: String
+    user_id: Int
+}
+
+input ProjectsMutationUpdate {
+    asset: String
+    ciudad: String
+    cluster: String
+    count_time_sec_est: Int
+    description: String
+    detail: String
+    duration: Float
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    id_sitio: String
+    plano: String
+    price: Float
+    prioridad: String
+    project_datetime_end: Date
+    project_datetime_init: Date
+    project_prototype_id: Int
+    project_recurrence_id: Int
+    quantity: Int
+    region: String
+    requerimiento: String
+    severidad: String
+    sites_id: Int
+    sitio: String
+    state_recipe_id: Int
+    ticket: String
+    tipo_sitio: String
+    user_id: Int
+}
+
+input PrototypeProjectMutation {
+    deleted_at: Date
+    project_id: Int
+    prototype_description: String
+    prototype_name: String
+}
+
+input ProviderMutation {
+    detail: String
+}
+
+input QuestionDisableMutation {
+    action_yes: Int
+    description: String
+    form_label_id: Int
+    response_type_id: Int
+}
+
+input ReasonByFormPaternMutation {
+    description_patern: String
+    form_outline_id: Int
+    is_next_form_patern: String
+    response_type_id: Int
+}
+
+input ReasonByFormSectionMutation {
+    description: String
+    form_section_id: Int!
+    is_next_section: String
+    response_type_id: Int
+}
+
+input ReasonByFormSegmentMutation {
+    description_next: String
+    form_segment_id: Int
+    is_next_segment: String
+    response_type_id: Int
+}
+
+input ResponseDisableMutation {
+    action_yes: Int
+    response_type_initiator_id: Int
+    response_type_reciver_id: Int
+}
+
+input ResponseTaskPeopleMutation {
+    audio_file: String
+    response_boolean: Int
+    response_type_id: Int
+    task_people_id: Int
+    text_response: String
+}
+
+input ResponseTypeMutation {
+    coordinate_x: Int
+    coordinate_y: Int
+    description: String
+    description_help: String
+    description_tool_tip: String
+    form_label_id: Int
+    form_segment_id: Int
+    is_disabling: Int
+    item_label: String
+    option_type_id: Int
+    pos: Int
+    regular_expression: String
+    required: Int
+}
+
+input RoleUserMutation {
+    role_id: Int!
+    user_id: Int!
+}
+
+input RolesMutation {
+    description: String
+    level: Int!
+    name: String!
+    slug: String!
+}
+
+input SalariesMutation {
+    active: Int
+    amount: Float!
+    people_id: Int!
+    user_id: Int
+}
+
+input SitesMutation {
+    antena: String
+    city: String
+    cluster: String
+    estate: String
+    idaltan: String
+    idnokia: String
+    latitud: String
+    longitud: String
+    municipality: String
+    people_id: Int
+    priority: String
+    region: String
+    sitename: String
+    status: String
+    towerid: String
+    towertype: String
+    txclutter: String
+    txsolutions: String
+    workpackage: String
+}
+
+input SparePartsMutation {
+    almacen: String
+    asset_altan: String
+    ciudad: String
+    cluster: String
+    descripcion_parte: String
+    fecha_despacho_sitio: Date
+    fecha_entrega_sitio: Date
+    fecha_solicitud: Date
+    id_sitio_altan: String
+    modelo: String
+    nombre: String
+    nombre_sitio: String
+    numero_parte: String
+    numero_serie: String
+    prioridad: String
+    referencia: String
+    region: String
+    severidad: String
+    ticket_itsm: String
+    tipo_sitio: String
+}
+
+input StateProjectsMutation {
+    description: String
+    progres_bar: String
+}
+
+input SubtaskTypesMutation {
+    dependency: Int
+    description: String
+    task_types_id: Int!
+    time_in_sec_est: Int
+    type_work_id: Int
+}
+
+input SupervisionMutation {
+    check: Int
+    people_id: Int
+    projects_id: Int
+    tasks_id: Int
+}
+
+input SupportAttachmentMutation {
+    cost: Float
+    detalle: String
+    file_support: Int
+    projects_id: Int!
+    provider_id: Int
+}
+
+input SupportAttachmentTaskPeopleMutation {
+    detail: String
+    file_support: Int
+    file_type_id: Int!
+    task_people_id: Int!
+}
+
+input Table54Mutation {
+    COL_1: String
+    COL_10: String
+    COL_11: String
+    COL_12: String
+    COL_13: String
+    COL_14: String
+    COL_15: String
+    COL_16: String
+    COL_17: String
+    COL_18: String
+    COL_19: String
+    COL_2: String
+    COL_20: String
+    COL_21: String
+    COL_22: String
+    COL_23: String
+    COL_3: String
+    COL_4: String
+    COL_5: String
+    COL_6: String
+    COL_7: String
+    COL_8: String
+    COL_9: String
+}
+
+input Table55Mutation {
+    COL_1: String
+    COL_10: String
+    COL_11: String
+    COL_12: String
+    COL_13: String
+    COL_14: String
+    COL_15: String
+    COL_2: String
+    COL_3: String
+    COL_4: String
+    COL_5: String
+    COL_6: String
+    COL_7: String
+    COL_8: String
+    COL_9: String
+}
+
+input Table56Mutation {
+    COL_1: String
+    COL_10: String
+    COL_11: String
+    COL_12: String
+    COL_13: String
+    COL_14: String
+    COL_15: String
+    COL_16: String
+    COL_17: String
+    COL_18: String
+    COL_19: String
+    COL_2: String
+    COL_20: String
+    COL_3: String
+    COL_4: String
+    COL_5: String
+    COL_6: String
+    COL_7: String
+    COL_8: String
+    COL_9: String
+}
+
+input TaskPeopleMutation {
+    end_time_work: Date
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    init_time_work: Date
+    lat_end: Float
+    lat_ini: Float
+    lon_end: Float
+    lon_ini: Float
+    path_evidencia: String
+    person_id: Int!
+    task_id: Int!
+}
+
+input TaskPeopleMutationUpdate {
+    end_time_work: Date
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    init_time_work: Date
+    lat_end: Float
+    lat_ini: Float
+    lon_end: Float
+    lon_ini: Float
+    path_evidencia: String
+    person_id: Int
+    task_id: Int!
+}
+
+input TaskTypesMutation {
+    description: String
+}
+
+input TaskTypesPeopleTypesMutation {
+    person_types_id: Int!
+    sub_task_type_id: Int!
+}
+
+input TasksMutation {
+    current_progress: Int
+    description: String!
+    end_at: Date
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    estimated_time: Float
+    init_at: Date
+    project_id: Int!
+    quantity_dependency: Int
+    quantity_real_time_used: Int
+    quantity_task: Int
+    state: String
+    sub_task_type_id: Int!
+    user_id: Int
+}
+
+input TasksMutationUpdate {
+    current_progress: Int
+    description: String
+    end_at: Date
+    estimated_datetime_end: Date
+    estimated_datetime_init: Date
+    estimated_time: Float
+    init_at: Date
+    project_id: Int!
+    quantity_dependency: Int
+    quantity_real_time_used: Int
+    quantity_task: Int
+    state: String
+    sub_task_type_id: Int
+    user_id: Int
+}
+
+input TimeWoMutation {
+    minutos: String
+    prioridad: String
+    severidad: String
+}
+
+input ToolsTypeMutation {
+    description: String
+    path_img_suport: Upload
+}
+
+input ToolsWorkMutation {
+    subtask_types_id: Int!
+    tools_type_id: Int!
+}
+
+input TypePeriodicityMutation {
+    description: String
+    hour_of_day: Date
+    periodicity_in_second: Int
+}
+
+input TypeWorkMutation {
+    description: String
+}
+
+input UnitsMutation {
+    name: String
+    type: Int
+}
+
+input UpdateC2gPermissionMutation {
+    c2gPermissionMutation: C2gPermissionMutation!
+    id: Int!
+}
+
+input UpdateFormLabelMutation {
+    formLabelMutation: FormLabelMutation!
+    id: Int!
+}
+
+input UpdateFormSectionMutation {
+    formSectionMutation: FormSectionMutation!
+    id: Int!
+}
+
+input UpdateFormSegmentMutation {
+    formSegmentMutation: FormSegmentMutation!
+    id: Int!
+}
+
+input UserProfilesMutation {
+    profile_id: Int!
+    user_id: Int!
+}
+
+input UserTypesMutation {
+    description: String!
+}
+
+input UsersMutation {
+    address: String
+    avatar: String
+    dni: String
+    email: String!
+    email_verification_code: String
+    email_verified: String!
+    lastname: String
+    mobilephone: String
+    name: String!
+    oauth_provider: String
+    oauth_provider_id: String
+    password: String!
+    phone: String
+    remember_token: String
+    team_id: Int
+}
+
+input VehiculesMutation {
+    id_gps: String
+    marca: String
+    modelo: String
+    people_id: Int!
+    placas: String
+}
+
+
+"Date type"
+scalar Date
+
+"The `Upload` scalar type represents a file upload promise that resolves an object containing `stream`, `filename`, `mimetype` and `encoding`."
+scalar Upload
+
+"Any Object type"
+scalar AnyObject

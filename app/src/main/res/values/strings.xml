@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="angryString"><![CDATA[>:(]]></string>
+    <string name="sadString">:C</string>
+
+    <string-array name="types">
+        <item>Answer 1</item>
+        <item>Answer 2</item>
+        <item>Answer 3</item>
+    </string-array>
+
 </resources>
